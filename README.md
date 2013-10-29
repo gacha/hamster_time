@@ -1,21 +1,29 @@
 # HamsterTime
 
-Upload your time tracking from "Hamster Time Tracker" to "Pivotaltracker" time shifts.
+Upload your time tracking from "Hamster Time Tracker" to "Pivotal Tracker" time shifts.
 
 ## Installation
 
     $ git pull
     $ bundle
-		$ vim .env
-			HAMSTER_DB_PATH: ~/.local/share/hamster-applet/hamster.db
-			PIVOTAL_USERNAME: <your username>
-			PIVOTAL_PASSWORD: <your password>
+Add file `.env` with configuration
+
+	HAMSTER_DB_PATH: ~/.local/share/hamster-applet/hamster.db
+	PIVOTAL_USERNAME: <your username>
+	PIVOTAL_PASSWORD: <your password>
 
 ## Usage
+Run with specific date or it will publish yesterday's work.
 
-		$./bin/hamster_time <12.8.2013>
+    $./bin/hamster_time <12.8.2013>
 
-	Categories in Hamster should be the in the same name as projects in Pivotal tracker.
+## Notes
+
+Categories in Hamster should be the in the same name as projects in Pivotal tracker.
+
+## License
+
+Available for use under the [MIT License](http://en.wikipedia.org/wiki/MIT_License)
 
 ## Contributing
 
