@@ -4,7 +4,8 @@ Upload your time tracking from "Hamster Time Tracker" to "Pivotal Tracker" time 
 
 ## Installation
 
-    $ git pull
+    $ git pull https://github.com/gacha/hamster_time.git
+    $ cd hamster_time
     $ bundle
 Add file `.env` with configuration
 
@@ -23,7 +24,7 @@ Categories in Hamster should be the in the same name as projects in Pivotal trac
 
 ## License
 
-Available for use under the [MIT License](http://en.wikipedia.org/wiki/MIT_License)
+Available for use under the [MIT License](/LICENSE.txt)
 
 ## Contributing
 
