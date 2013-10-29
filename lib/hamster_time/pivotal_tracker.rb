@@ -1,5 +1,4 @@
 require "mechanize"
-require "pry"
 
 module PivotalTracker
   class Site
