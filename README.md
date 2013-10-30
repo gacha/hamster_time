@@ -12,6 +12,8 @@ Add file `.env` with configuration
 	HAMSTER_DB_PATH: ~/.local/share/hamster-applet/hamster.db
 	PIVOTAL_USERNAME: <your username>
 	PIVOTAL_PASSWORD: <your password>
+Open hamster db `~/.local/share/hamster-applet/hamster.db` with some sqlite editor and add new field `synced` as `integer` to
+`facts` table.
 
 ## Usage
 Run with specific date or it will publish yesterday's work.
