@@ -6,7 +6,7 @@ require "hamster_time/pivotal_tracker"
 
 module HamsterTime
   class App
-    attr_reader :activities, :site
+    attr_reader :activities, :site, :report_day
 
     def initialize report_day = nil
       @activities = []
@@ -26,7 +26,7 @@ module HamsterTime
     def collect_activities
       @activities = Hamster::Fact.includes(:activity).joins(:activity).where(%^
         DATE(start_time) = ? AND synced IS NOT 1
-        ^, report_day
+        ^, report_day.to_date
       )
     end
 
@@ -42,7 +42,7 @@ module HamsterTime
         sleep rand(3)
       end
       puts "-" * 50
-      puts "Total: #{activities.map{|_, item| item.hours }.sum}"
+      puts "Total: #{activities.map{|_, item| item.hours }.sum} hours in #{report_day.to_date}"
     end
 
     def report_day

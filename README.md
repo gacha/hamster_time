@@ -7,16 +7,21 @@ Upload your time tracking from "Hamster Time Tracker" to "Pivotal Tracker" time 
     $ git pull https://github.com/gacha/hamster_time.git
     $ cd hamster_time
     $ bundle
+
 Add file `.env` with configuration
 
-	HAMSTER_DB_PATH: ~/.local/share/hamster-applet/hamster.db
-	PIVOTAL_USERNAME: <your username>
-	PIVOTAL_PASSWORD: <your password>
+    HAMSTER_DB_PATH: ~/.local/share/hamster-applet/hamster.db
+    PIVOTAL_USERNAME: <your username>
+    PIVOTAL_PASSWORD: <your password>
+
+Patch hamster DB, add `synced` field:
+
+    $ ./bin/migrate
 
 ## Usage
 Run with specific date or it will publish yesterday's work.
 
-    $./bin/hamster_time <12.8.2013>
+    $ ./bin/hamster_time <12.8.2013>
 
 ## Notes
 
