@@ -1,20 +1,20 @@
-require "active_record"
+require 'active_record'
 
 module Hamster
-
   def self.establish_connection
     ActiveRecord::Base.establish_connection(
-      adapter: "sqlite3",
-      database: File.expand_path(ENV["HAMSTER_DB_PATH"])
+      adapter: 'sqlite3',
+      database: File.expand_path(ENV['HAMSTER_DB_PATH'])
     )
   end
 
   class Fact < ActiveRecord::Base
     belongs_to :activity
-    has_and_belongs_to_many :tags, join_table: "fact_tags"
+    has_and_belongs_to_many :tags, join_table: 'fact_tags'
+    default_scope -> { order('facts.id ASC') }
 
     def tag_names
-      tags.pluck(:name).join(",")
+      tags.pluck(:name).join(',')
     end
   end
 
@@ -28,6 +28,6 @@ module Hamster
   end
 
   class Tag < ActiveRecord::Base
-    has_and_belongs_to_many :facts, join_table: "fact_tags"
+    has_and_belongs_to_many :facts, join_table: 'fact_tags'
   end
 end

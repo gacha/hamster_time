@@ -6,7 +6,7 @@ require "hamster_time/pivotal_tracker"
 
 module HamsterTime
   class App
-    attr_reader :activities, :site, :report_day
+    attr_reader :activities, :site
 
     def initialize report_day = nil
       @activities = []
@@ -51,6 +51,10 @@ module HamsterTime
 
     def group_activities_by_name
       @activities = activities.inject({}) do |result, item|
+        unless item.start_time && item.end_time
+          puts "Activity: #{item.activity.name} missing data!"
+          exit(1)
+        end
         unless result.key?(item.activity_id)
           result[item.activity_id] = OpenStruct.new({
             name: item.activity.name,
