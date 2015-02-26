@@ -1,12 +1,12 @@
 #!/usr/bin/env ruby
-require "rubygems"
-require "bundler/setup"
-require "dotenv"
+require 'rubygems'
+require 'bundler/setup'
+require 'dotenv'
 
 Dotenv.load
 
-require_relative "../lib/hamster_time/hamster"
+require_relative '../lib/hamster_time/hamster'
 
 Hamster.establish_connection
-ActiveRecord::Base.connection.execute %^ALTER TABLE facts ADD COLUMN synced integer;^
+ActiveRecord::Base.connection.execute %(ALTER TABLE facts ADD COLUMN synced integer;)
 ActiveRecord::Base.connection.close

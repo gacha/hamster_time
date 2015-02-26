@@ -1,11 +1,11 @@
 #!/usr/bin/env ruby
-require "rubygems"
-require "bundler/setup"
-require "dotenv"
+require 'rubygems'
+require 'bundler/setup'
+require 'dotenv'
 
 Dotenv.load
 
-require_relative "../lib/hamster_time"
+require_relative '../lib/hamster_time'
 
 app = HamsterTime::App.new(ARGV.any? && Time.parse(ARGV[0]))
 app.run

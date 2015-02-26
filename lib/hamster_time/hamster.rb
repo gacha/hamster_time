@@ -12,6 +12,8 @@ module Hamster
     belongs_to :activity
     has_and_belongs_to_many :tags, join_table: 'fact_tags'
     default_scope -> { order('facts.id ASC') }
+    validates :start_time, :end_time, :activity_id, presence: true
+    validates_associated :activity
 
     def tag_names
       tags.pluck(:name).join(',')
@@ -21,10 +23,13 @@ module Hamster
   class Activity < ActiveRecord::Base
     has_many :facts
     belongs_to :category
+    validates :category_id, presence: true
+    validates_associated :category
   end
 
   class Category < ActiveRecord::Base
     has_many :activities
+    validates :name, presence: true
   end
 
   class Tag < ActiveRecord::Base
